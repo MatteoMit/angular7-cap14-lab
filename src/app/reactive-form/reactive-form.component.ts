@@ -12,26 +12,6 @@ export class ReactiveFormComponent {
 
   reactiveForm: FormGroup;
 
-  daysOfTheWeek = [
-    'Lunedì',
-    'Martedì',
-    'Mercoledì',
-    'Giovedì',
-    'Venerdì'
-  ];
-
-  availableOffices = [
-    {id: 'A', name: 'ufficio_A'},
-    {id: 'B', name: 'ufficio_B'},
-    {id: 'C', name: 'ufficio_C'},
-  ];
-
-  applications = [
-    {id: 0},
-    {id: 1},
-    {id: 2}
-  ];
-  
   constructor() {
     this.reactiveForm = new FormGroup({
       name: new FormControl(""),
@@ -50,4 +30,25 @@ export class ReactiveFormComponent {
       })
     });
   }
+
+daysOfTheWeek = [
+    'Lunedì',
+    'Martedì',
+    'Mercoledì',
+    'Giovedì',
+    'Venerdì'
+  ];
+
+  availableOffices = [
+    {id: 'A', name: 'ufficio_A'},
+    {id: 'B', name: 'ufficio_B'},
+    {id: 'C', name: 'ufficio_C'},
+  ];
+
+  applications = [
+    {id: 0},
+    {id: 1},
+    {id: 2}
+  ];
+
 }
