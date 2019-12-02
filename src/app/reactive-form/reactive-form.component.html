@@ -1,0 +1,90 @@
+<form novalidate>
+	<div class="form-row">
+		<div class="col-md-4 mb-2">
+			<label for="name">Nome</label>
+			<input type="text"
+			class="form-control"
+			id="name"
+			name="name"
+			placeholder="Nome">
+		</div>
+		<div class="col-md-4 mb-2">
+			<label for="mail">E-mail</label>
+			<input type="email"
+			class="form-control"
+			id="mail"
+			name="mail"
+			placeholder="Inserisci la tua e-mail">
+		</div>
+		<div class="col-md-4 mb-2">
+			<label for="dayOfTheWeek">Giorno della settimana</label>
+			<select
+				name="dayOfTheWeek"
+				id="dayOfTheWeek"
+				class="form-control">
+				<option
+					*ngFor="let day of daysOfTheWeek"
+				[value]="day">{{ day }}</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-row">
+		<div class="col-md-4 mb-2">
+			<label for="address">Indirizzo</label>
+			<input type="text"
+			class="form-control"
+			id="address"
+			name="address"
+			placeholder="Indirizzo">
+		</div>
+		<div class="col-md-4 mb-2">
+			<label for="city">Citt&agrave;</label>
+			<input type="text"
+			class="form-control"
+			id="city"
+			name="city"
+			placeholder="Citt&agrave;">
+		</div>
+		<div class="col-md-4 mb-2">
+			<label for="zipCode">CAP</label>
+			<input type="text"
+			class="form-control"
+			id="zipCode"
+			name="zipCode"
+			placeholder="CAP">
+		</div>
+	</div>
+	<div class="form-row mt-3 mb-3">
+		<div
+			class="form-check form-check-inline"
+			*ngFor="let office of availableOffices">
+			<input type="radio"
+			name="office"
+			id="office-{{ office.id }}"
+			class="form-check-input"
+			value="{{ office.name }}">
+			<label for="office" class="form-check-label">
+				Ufficio {{ office.id }}
+			</label>
+		</div>
+	</div>
+	<div class="form-row mt-3 mb-3">
+		<div
+			class="form-check form-check-inline"
+			*ngFor="let application of applications; let i = index;">
+			<input type="checkbox"
+			name="application{{ application.id }}"
+			id="application-{{ application.id }}"
+			class="form-check-input"
+			value="richiesta_{{ application.id }}">
+			<label for="application" class="form-check-label">
+				Richiesta {{ application.id }}
+			</label>
+		</div>
+	</div>
+	<div class="form-row">
+		<button
+			type="submit"
+		class="btn btn-primary">Prenota</button>
+	</div>
+</form>s
