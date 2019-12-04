@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 import { Appointment } from "./appointment";
-import { FormBuilder, FormGroup, FormControl } from "@angular/forms";
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "simple-reactive-form",
