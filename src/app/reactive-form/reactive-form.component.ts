@@ -9,9 +9,11 @@ import { FormBuilder, Validators, FormGroup } from "@angular/forms";
   styleUrls: ["./reactive-form.component.css"]
 })
 export class ReactiveFormComponent {
+
   reactiveForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
+    
     this.reactiveForm = this.formBuilder.group({
       name: [
         "",
@@ -37,9 +39,10 @@ export class ReactiveFormComponent {
         application_2: [false]
       })
     });
-  }
-
-  
+    
+    this.mailControl = this.reactiveForm.get('mail');
+  };
+     
   daysOfTheWeek = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì"];
 
   availableOffices = [

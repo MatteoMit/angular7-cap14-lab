@@ -9,15 +9,29 @@
 			name="name"
 			placeholder="Nome">
 		</div>
+    
 		<div class="col-md-4 mb-2">
-			<label for="mail">E-mail </label>
+			<label for="mail">E-mail</label>
 			<input type="email"
 			formControlName="mail"
 			class="form-control"
+			[ngClass]= "{
+          'is-invalid': mailControl.invalid && mailControl.dirty,
+          'is-valid': mailControl.valid && mailControl.dirty}"
 			id="mail"
 			name="mail"
 			placeholder="Inserisci la tua e-mail">
-		</div>
+			<div
+				*ngIf="mailControl.errors && mailControl.dirty"
+				class="invalid-feedback">
+				<p *ngIf="mailControl.errors.pattern" >
+					Formato e-mail non valido
+				</p>
+				<p *ngIf="mailControl.errors.required" >
+					* Campo obbligatorio
+				</p>
+			</div>
+		</div>		
 		<div class="col-md-4 mb-2">
 			<label for="dayOfTheWeek">Giorno della settimana </label>
 			<select
@@ -93,8 +107,18 @@
 	</div>
 	<div class="form-row">
 		<button
-			type="submit"
-		class="btn btn-primary">Prenota</button>
+      type="submit"
+      class="btn "
+      [ngClass]="{
+        'btn-secondary': reactiveForm.invalid,
+        'btn-success': reactiveForm.valid
+      }"
+      [disabled]="reactiveForm.invalid">Prenota</button>
+    <button
+      type="submit"
+      class="btn btn-danger"
+      (click)="reactiveForm.reset()"
+      [disabled]="reactiveForm.invalid">Reset</button>
 	</div>
 </form>
 
