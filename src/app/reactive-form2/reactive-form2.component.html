@@ -15,7 +15,8 @@
 	<fieldset formArrayName="ingredients">
 		<!-- formArrayName -->
 		<legend>Ingredienti</legend>
-		<div class="form-row" *ngFor="let ingredient of ingredients.controls; let i=index">
+		<div class="form-row" 
+     *ngFor="let ingredient of ingredients.controls; let i=index">
 			<div class="col-md-6 mb-2">
 				<!-- formControlName -->
 				<input type="text"
