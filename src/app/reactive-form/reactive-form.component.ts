@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 import { Appointment } from "./appointment";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, Validators, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "simple-reactive-form",
@@ -13,8 +13,17 @@ export class ReactiveFormComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.reactiveForm = this.formBuilder.group({
-      name: [""],
-      mail: [""],
+      name: [
+        "",
+        [Validators.required, Validators.minLength(2), Validators.maxLength(50)]
+      ],
+      mail: [
+        "",
+        [
+          Validators.required,
+          Validators.pattern("[a-z0-9._%+-]+@[a-z0-9-.]+\\.[a-z]{2,}$")
+        ]
+      ],
       dayOfTheWeek: ["Lunedì"],
       fullAddress: this.formBuilder.group({
         address: [""],
