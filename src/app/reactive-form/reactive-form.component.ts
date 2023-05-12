@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 import { Appointment } from "./appointment";
-import { FormBuilder, Validators, FormGroup } from "@angular/forms";
+import { FormBuilder, Validators, FormGroup, FormControl } from "@angular/forms";
 
 @Component({
   selector: "simple-reactive-form",
@@ -11,6 +11,7 @@ import { FormBuilder, Validators, FormGroup } from "@angular/forms";
 export class ReactiveFormComponent {
 
   reactiveForm: FormGroup;
+  mailControl: FormControl;
 
   constructor(private formBuilder: FormBuilder) {
     
@@ -40,7 +41,8 @@ export class ReactiveFormComponent {
       })
     });
     
-    this.mailControl = this.reactiveForm.get('mail');
+    this.mailControl = <FormControl>this.reactiveForm.get('mail');
+
   };
      
   daysOfTheWeek = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì"];
